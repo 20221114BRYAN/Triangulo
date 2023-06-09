@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="diseño.css">
+</head>
+<body>
+    <div>
+        <title>Calcular Triangulo</title>
+    <script>
+        function CalcularTriangulo()
+        {
+            var lado1=parseFloat(document.getElementById("lado1").value);
+            var lado2=parseFloat(document.getElementById("lado2").value);
+            var lado3=parseFloat(document.getElementById("lado3").value);
+
+        
+            var perimetro  = lado1 + lado2 + lado3;
+
+            var semiperimetro = perimetro /2;
+            
+            var area= Math.sqrt(semiperimetro *(semiperimetro-lado1) *(semiperimetro-lado2)*(semiperimetro-lado3));
+
+            var TipoTriangulo;
+            if (lado1 == lado2 && lado2== lado3){
+                TipoTriangulo=" Equilatero ";
+                
+            }
+            else if (lado1 == lado2 || lado1 == lado3 || lado2 == lado3)
+            {
+                TipoTriangulo=" Isoceles ";
+            }
+            else{
+                TipoTriangulo =" escaleno ";
+            }
+            document.getElementById("reasultadoPerimetro").innerHTML = " perimetro: " + perimetro;
+            document.getElementById("reasultadoArea").innerHTML = " Area: " + area.toFixed(2);
+            document.getElementById("resultadoTipo").innerHTML= " Tipo triangulo: " + TipoTriangulo;
+        }
+    </script>
+    <h1>Calculo de triangulo</h1>
+    <label for="lado1"> lado 1:</label>
+    <input type="text" id="lado1"/> <br><br>
+
+    <label for="lado2"> lado 2:</label>
+    <input type="text" id="lado2"/>
+
+    <label for="lado3"> lado 3:</label>
+    <input type="text" id="lado3"/>
+
+    <button onclick="CalcularTriangulo()">Calcular</button>
+
+    <h2>Resultado</h2>
+    <p id="reasultadoPerimetro"></p>
+    <p id="reasultadoArea"></p>
+    <p id="resultadoTipo"></p>
+
+    </div>
+    
+</body>
+
+</html>
